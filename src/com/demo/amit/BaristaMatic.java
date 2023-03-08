@@ -241,14 +241,69 @@ public class BaristaMatic {
 	public static void restockInventory() {
 
 		inventory = new LinkedHashMap<>(restockInventory);
+		System.out.println("Inventory Restock Done!!!");
+		/*
+		 * for (Map.Entry<String, Integer> m : inventory.entrySet()) {
+		 * System.out.println(m.getKey() + " " + m.getValue()); }
+		 * 
+		 * System.out.println(); System.out.println("Menu: ");
+		 * 
+		 * for (Map.Entry<Integer, ArrayList> m : menu.entrySet()) {
+		 * System.out.println(m.getKey() + " " + m.getValue()); }
+		 */
+
+	}
+
+	public static void displayInventory() {
+		System.out.println("Inventory: ");
+		for (Map.Entry<String, Integer> m : inventory.entrySet()) {
+			System.out.println(m.getKey() + " " + m.getValue());
+		}
+
+		System.out.println();
+
+	}
+
+	public static void displayMenu() {
+		System.out.println("Menu: ");
+
+		for (Map.Entry<Integer, ArrayList> m : menu.entrySet()) {
+			System.out.println(m.getKey() + " " + m.getValue());
+		}
+
+		System.out.println();
 
 	}
 
 	public static void main(String[] args) {
 
-		// modifyOrder(1);
+		displayInventory();
+		displayMenu();
 
-		restockInventory();
+		Scanner scan = new Scanner(System.in);
+		String choice;
+
+		for (int i = 1; i <= 10; i++) {
+			choice = scan.next();
+			if (choice.equals("R") || choice.equals("r")) {
+				restockInventory();
+
+			}
+
+			else if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4")
+					|| choice.equals("5") || choice.equals("6")) {
+
+				int value = Integer.parseInt(choice);
+				modifyOrder(value);
+
+			}
+
+			else if (choice.equals("Q") || choice.equals("q")) {
+				System.out.println("Quitting Application...");
+				break;
+			}
+
+		}
 
 	}
 
