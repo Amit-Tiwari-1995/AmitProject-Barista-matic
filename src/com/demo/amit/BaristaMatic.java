@@ -14,6 +14,8 @@ public class BaristaMatic {
 
 	private static LinkedHashMap<Integer, ArrayList> menu = new LinkedHashMap<>();
 
+	private static LinkedHashMap<String, Integer> restockInventory = new LinkedHashMap<>();
+
 	static {
 		ingrediants.put("Coffee", 0.75);
 		ingrediants.put("Decaf Coffee", 0.75);
@@ -79,6 +81,20 @@ public class BaristaMatic {
 		 * menuList.add("4,Cappuccino,$2.90,true"); menuList.add("5,Coffee,$2.75,true");
 		 * menuList.add("6,Decaf Coffee,$2.75,true");
 		 */
+
+	}
+
+	static {
+		restockInventory.put("Cocoa", 10);
+		restockInventory.put("Coffee", 10);
+		restockInventory.put("Cream", 10);
+		restockInventory.put("Cocoa", 10);
+		restockInventory.put("Decaf Coffee", 10);
+		restockInventory.put("Espresso", 10);
+		restockInventory.put("Foamed Milk", 10);
+		restockInventory.put("Steamed Milk", 10);
+		restockInventory.put("Sugar", 10);
+		restockInventory.put("Whipped Cream", 10);
 
 	}
 
@@ -222,9 +238,17 @@ public class BaristaMatic {
 
 	}
 
+	public static void restockInventory() {
+
+		inventory = new LinkedHashMap<>(restockInventory);
+
+	}
+
 	public static void main(String[] args) {
 
-		modifyOrder(6);
+		// modifyOrder(1);
+
+		restockInventory();
 
 	}
 
