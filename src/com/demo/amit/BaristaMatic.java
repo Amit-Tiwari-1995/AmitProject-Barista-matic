@@ -303,6 +303,10 @@ public class BaristaMatic {
 				break;
 			}
 
+			else {
+				System.out.println("Invalid selection: " + choice);
+			}
+
 		}
 
 	}
