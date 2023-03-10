@@ -16,6 +16,8 @@ public class BaristaMatic {
 
 	private static LinkedHashMap<String, Integer> restockInventory = new LinkedHashMap<>();
 
+	private static LinkedHashMap<Integer, ArrayList> resetMenu = new LinkedHashMap<>();
+
 	static {
 		ingrediants.put("Coffee", 0.75);
 		ingrediants.put("Decaf Coffee", 0.75);
@@ -98,7 +100,52 @@ public class BaristaMatic {
 
 	}
 
+	static {
+		resetMenu.put(1, new ArrayList<>());
+		resetMenu.put(2, new ArrayList<>());
+		resetMenu.put(3, new ArrayList<>());
+		resetMenu.put(4, new ArrayList<>());
+		resetMenu.put(5, new ArrayList<>());
+		resetMenu.put(6, new ArrayList<>());
+
+		resetMenu.get(1).add("Caffe Americano");
+		resetMenu.get(1).add(3.30);
+		resetMenu.get(1).add(true);
+
+		resetMenu.get(2).add("Caffe Latte");
+		resetMenu.get(2).add(2.55);
+		resetMenu.get(2).add(true);
+
+		resetMenu.get(3).add("Caffe Mocha");
+		resetMenu.get(3).add(3.35);
+		resetMenu.get(3).add(true);
+
+		resetMenu.get(4).add("Caffe Americano");
+		menu.get(4).add(3.30);
+		menu.get(4).add(true);
+
+		resetMenu.get(5).add("Cappuccino");
+		resetMenu.get(5).add(2.90);
+		resetMenu.get(5).add(true);
+
+		resetMenu.get(6).add("Decaf Coffee");
+		resetMenu.get(6).add(2.75);
+		resetMenu.get(6).add(true);
+
+		/*
+		 * menuList.add("1,Caffe Americano,$3.30,true");
+		 * menuList.add("2,Caffe Latte,$2.55,true");
+		 * menuList.add("3,Caffe Mocha,$3.35,true");
+		 * menuList.add("4,Cappuccino,$2.90,true"); menuList.add("5,Coffee,$2.75,true");
+		 * menuList.add("6,Decaf Coffee,$2.75,true");
+		 */
+
+	}
+
 	public static void modifyOrder(int value) {
+
+		DefaultMenuInventory.defaultInventoryMenuDisplay();
+		System.out.println();
 
 		double cost = 0;
 
@@ -226,6 +273,38 @@ public class BaristaMatic {
 
 		}
 
+		// if
+		if (inventory.get("Espresso") < 3) {
+
+			menu.get(1).set(2, false);
+
+		}
+
+		if (inventory.get("Espresso") < 2 || inventory.get("Steamed Milk") < 1) {
+			menu.get(2).set(2, false);
+
+		}
+		if (inventory.get("Espresso") < 1 || inventory.get("Cocoa") < 1 || inventory.get("Steamed Milk") < 1
+				|| inventory.get("Whipped Cream") < 1) {
+			menu.get(3).set(2, false);
+
+		}
+		if (inventory.get("Espresso") < 2 || inventory.get("Steamed Milk") < 1 || inventory.get("Foamed Milk") < 2) {
+			menu.get(4).set(2, false);
+
+		}
+		if (inventory.get("Coffee") < 3 || inventory.get("Sugar") < 1 || inventory.get("Cream") < 1) {
+			menu.get(5).set(2, false);
+
+		}
+		if (inventory.get("Decaf Coffee") < 3 || inventory.get("Sugar") < 1 || inventory.get("Cream") < 1) {
+			menu.get(6).set(2, false);
+
+		}
+
+		displayInventory();
+		displayMenu();
+
 		/*
 		 * System.out.println(cost);
 		 * 
@@ -241,7 +320,9 @@ public class BaristaMatic {
 	public static void restockInventory() {
 
 		inventory = new LinkedHashMap<>(restockInventory);
+		menu = new LinkedHashMap<>(resetMenu);
 		System.out.println("Inventory Restock Done!!!");
+
 		/*
 		 * for (Map.Entry<String, Integer> m : inventory.entrySet()) {
 		 * System.out.println(m.getKey() + " " + m.getValue()); }
@@ -277,8 +358,7 @@ public class BaristaMatic {
 
 	public static void main(String[] args) {
 
-		displayInventory();
-		displayMenu();
+		DefaultMenuInventory.defaultInventoryMenuDisplay();
 
 		Scanner scan = new Scanner(System.in);
 		String choice;
