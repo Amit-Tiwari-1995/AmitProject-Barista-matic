@@ -5,18 +5,18 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-@SuppressWarnings("unchecked")
+
 public class BaristaMatic {
 
 	private static LinkedHashMap<String, Double> ingrediants = new LinkedHashMap<>();
 
 	private static LinkedHashMap<String, Integer> inventory = new LinkedHashMap<>();
 
-	private static LinkedHashMap<Integer, ArrayList> menu = new LinkedHashMap<>();
+	private static LinkedHashMap<Integer, ArrayList<Object>> menu = new LinkedHashMap<>();
 
 	private static LinkedHashMap<String, Integer> restockInventory = new LinkedHashMap<>();
 
-	private static LinkedHashMap<Integer, ArrayList> resetMenu = new LinkedHashMap<>();
+	private static LinkedHashMap<Integer, ArrayList<Object>> resetMenu = new LinkedHashMap<>();
 
 	static {
 		ingrediants.put("Coffee", 0.75);
@@ -153,12 +153,14 @@ public class BaristaMatic {
 
 			if (inventory.get("Espresso") >= 3) {
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Espresso", inventory.get("Espresso") - 3);
 
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -168,6 +170,7 @@ public class BaristaMatic {
 
 			if (inventory.get("Espresso") >= 2 && inventory.get("Steamed Milk") >= 1) {
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Espresso", inventory.get("Espresso") - 2);
 				inventory.put("Steamed Milk", inventory.get("Steamed Milk") - 1);
@@ -175,6 +178,7 @@ public class BaristaMatic {
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -188,6 +192,7 @@ public class BaristaMatic {
 					&& inventory.get("Whipped Cream") >= 1) {
 
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Espresso", inventory.get("Espresso") - 1);
 				inventory.put("Cocoa", inventory.get("Cocoa") - 1);
@@ -197,6 +202,7 @@ public class BaristaMatic {
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -214,6 +220,7 @@ public class BaristaMatic {
 					&& inventory.get("Foamed Milk") >= 2) {
 
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Espresso", inventory.get("Espresso") - 2);
 				inventory.put("Steamed Milk", inventory.get("Steamed Milk") - 1);
@@ -222,6 +229,7 @@ public class BaristaMatic {
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -235,6 +243,7 @@ public class BaristaMatic {
 			if (inventory.get("Coffee") >= 3 && inventory.get("Sugar") >= 1 && inventory.get("Cream") >= 1) {
 
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Coffee", inventory.get("Coffee") - 3);
 				inventory.put("Sugar", inventory.get("Sugar") - 1);
@@ -242,6 +251,7 @@ public class BaristaMatic {
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -255,6 +265,7 @@ public class BaristaMatic {
 			if (inventory.get("Decaf Coffee") >= 3 && inventory.get("Sugar") >= 1 && inventory.get("Cream") >= 1) {
 
 				System.out.println("Dispensing: " + menu.get(value).get(0));
+				System.out.println();
 
 				inventory.put("Decaf Coffee", inventory.get("Decaf Coffee") - 3);
 				inventory.put("Sugar", inventory.get("Sugar") - 1);
@@ -263,6 +274,7 @@ public class BaristaMatic {
 			} else {
 
 				System.out.println("Out of stock: " + menu.get(value).get(0));
+				System.out.println();
 
 			}
 
@@ -348,7 +360,7 @@ public class BaristaMatic {
 	public static void displayMenu() {
 		System.out.println("Menu: ");
 
-		for (Map.Entry<Integer, ArrayList> m : menu.entrySet()) {
+		for (Map.Entry<Integer, ArrayList<Object>> m : menu.entrySet()) {
 			System.out.println(m.getKey() + " " + m.getValue());
 		}
 

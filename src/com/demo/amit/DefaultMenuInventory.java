@@ -10,7 +10,7 @@ public class DefaultMenuInventory {
 
 		LinkedHashMap<String, Integer> defaultInventory = new LinkedHashMap<>();
 
-		LinkedHashMap<Integer, ArrayList> defaultMenu = new LinkedHashMap<>();
+		LinkedHashMap<Integer, ArrayList<Object>> defaultMenu = new LinkedHashMap<>();
 
 		defaultInventory.put("Cocoa", 10);
 		defaultInventory.put("Coffee", 10);
@@ -67,7 +67,7 @@ public class DefaultMenuInventory {
 
 		System.out.println("Menu: ");
 		
-		for(Map.Entry<Integer, ArrayList> m : defaultMenu.entrySet())
+		for(Map.Entry<Integer, ArrayList<Object>> m : defaultMenu.entrySet())
 		{
 			System.out.println(m.getKey()+" "+m.getValue());
 			
