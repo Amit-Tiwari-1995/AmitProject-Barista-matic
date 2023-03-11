@@ -41,27 +41,27 @@ public class BaristaMatic {
 		menu.put(6, new ArrayList<>());
 
 		menu.get(1).add("Caffe Americano");
-		menu.get(1).add(3.30);
+		menu.get(1).add("$3.30");
 		menu.get(1).add(true);
 
 		menu.get(2).add("Caffe Latte");
-		menu.get(2).add(2.55);
+		menu.get(2).add("$2.55");
 		menu.get(2).add(true);
 
 		menu.get(3).add("Caffe Mocha");
-		menu.get(3).add(3.35);
+		menu.get(3).add("$3.35");
 		menu.get(3).add(true);
 
 		menu.get(4).add("Caffe Americano");
-		menu.get(4).add(3.30);
+		menu.get(4).add("$3.30");
 		menu.get(4).add(true);
 
 		menu.get(5).add("Cappuccino");
-		menu.get(5).add(2.90);
+		menu.get(5).add("$2.90");
 		menu.get(5).add(true);
 
 		menu.get(6).add("Decaf Coffee");
-		menu.get(6).add(2.75);
+		menu.get(6).add("$2.75");
 		menu.get(6).add(true);
 
 		/*
@@ -96,27 +96,27 @@ public class BaristaMatic {
 		resetMenu.put(6, new ArrayList<>());
 
 		resetMenu.get(1).add("Caffe Americano");
-		resetMenu.get(1).add(3.30);
+		resetMenu.get(1).add("$3.30");
 		resetMenu.get(1).add(true);
 
 		resetMenu.get(2).add("Caffe Latte");
-		resetMenu.get(2).add(2.55);
+		resetMenu.get(2).add("$2.55");
 		resetMenu.get(2).add(true);
 
 		resetMenu.get(3).add("Caffe Mocha");
-		resetMenu.get(3).add(3.35);
+		resetMenu.get(3).add("$3.35");
 		resetMenu.get(3).add(true);
 
 		resetMenu.get(4).add("Caffe Americano");
-		menu.get(4).add(3.30);
-		menu.get(4).add(true);
+		resetMenu.get(4).add("$3.30");
+		resetMenu.get(4).add(true);
 
 		resetMenu.get(5).add("Cappuccino");
-		resetMenu.get(5).add(2.90);
+		resetMenu.get(5).add("$2.90");
 		resetMenu.get(5).add(true);
 
 		resetMenu.get(6).add("Decaf Coffee");
-		resetMenu.get(6).add(2.75);
+		resetMenu.get(6).add("$2.75");
 		resetMenu.get(6).add(true);
 
 		/*
