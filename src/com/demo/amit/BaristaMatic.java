@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class BaristaMatic {
 
-	private static LinkedHashMap<String, Double> ingrediants = new LinkedHashMap<>();
 
 	private static LinkedHashMap<String, Integer> inventory = new LinkedHashMap<>();
 
@@ -18,23 +17,12 @@ public class BaristaMatic {
 
 	private static LinkedHashMap<Integer, ArrayList<Object>> resetMenu = new LinkedHashMap<>();
 
-	static {
-		ingrediants.put("Coffee", 0.75);
-		ingrediants.put("Decaf Coffee", 0.75);
-		ingrediants.put("Sugar", 0.25);
-		ingrediants.put("Cream", 0.25);
-		ingrediants.put("Steamed Milk", 0.35);
-		ingrediants.put("Foamed Milk", 0.35);
-		ingrediants.put("Espresso", 1.10);
-		ingrediants.put("Cocoa", 0.90);
-		ingrediants.put("Whipped Cream", 1.00);
-	}
+	
 
 	static {
 		inventory.put("Cocoa", 10);
 		inventory.put("Coffee", 10);
 		inventory.put("Cream", 10);
-		inventory.put("Cocoa", 10);
 		inventory.put("Decaf Coffee", 10);
 		inventory.put("Espresso", 10);
 		inventory.put("Foamed Milk", 10);
@@ -90,7 +78,6 @@ public class BaristaMatic {
 		restockInventory.put("Cocoa", 10);
 		restockInventory.put("Coffee", 10);
 		restockInventory.put("Cream", 10);
-		restockInventory.put("Cocoa", 10);
 		restockInventory.put("Decaf Coffee", 10);
 		restockInventory.put("Espresso", 10);
 		restockInventory.put("Foamed Milk", 10);
