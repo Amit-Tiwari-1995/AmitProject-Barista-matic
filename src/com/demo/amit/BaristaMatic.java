@@ -131,7 +131,8 @@ public class BaristaMatic {
 
 	public static void modifyOrder(int value) {
 
-		DefaultMenuInventory.defaultInventoryMenuDisplay();
+		//DefaultMenuInventory.defaultInventoryMenuDisplay();
+
 		System.out.println();
 
 		double cost = 0;
@@ -357,7 +358,11 @@ public class BaristaMatic {
 
 	public static void main(String[] args) {
 
-		DefaultMenuInventory.defaultInventoryMenuDisplay();
+		//DefaultMenuInventory.defaultInventoryMenuDisplay();
+		
+		displayInventory();
+		displayMenu();
+		
 
 		Scanner scan = new Scanner(System.in);
 		String choice;
