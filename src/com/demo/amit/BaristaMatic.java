@@ -367,7 +367,7 @@ public class BaristaMatic {
 		Scanner scan = new Scanner(System.in);
 		String choice;
 
-		for (int i = 1; i <= 10; i++) {
+		while (true) {
 			choice = scan.next();
 			if (choice.equals("R") || choice.equals("r")) {
 				restockInventory();
