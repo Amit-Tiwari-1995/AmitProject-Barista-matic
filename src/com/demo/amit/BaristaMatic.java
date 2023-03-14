@@ -5,9 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class BaristaMatic {
-
 
 	private static LinkedHashMap<String, Integer> inventory = new LinkedHashMap<>();
 
@@ -16,8 +14,6 @@ public class BaristaMatic {
 	private static LinkedHashMap<String, Integer> restockInventory = new LinkedHashMap<>();
 
 	private static LinkedHashMap<Integer, ArrayList<Object>> resetMenu = new LinkedHashMap<>();
-
-	
 
 	static {
 		inventory.put("Cocoa", 10);
@@ -52,25 +48,17 @@ public class BaristaMatic {
 		menu.get(3).add("$3.35");
 		menu.get(3).add(true);
 
-		menu.get(4).add("Caffe Americano");
+		menu.get(4).add("Cappuccino");
 		menu.get(4).add("$3.30");
 		menu.get(4).add(true);
 
-		menu.get(5).add("Cappuccino");
+		menu.get(5).add("Coffee");
 		menu.get(5).add("$2.90");
 		menu.get(5).add(true);
 
 		menu.get(6).add("Decaf Coffee");
 		menu.get(6).add("$2.75");
 		menu.get(6).add(true);
-
-		/*
-		 * menuList.add("1,Caffe Americano,$3.30,true");
-		 * menuList.add("2,Caffe Latte,$2.55,true");
-		 * menuList.add("3,Caffe Mocha,$3.35,true");
-		 * menuList.add("4,Cappuccino,$2.90,true"); menuList.add("5,Coffee,$2.75,true");
-		 * menuList.add("6,Decaf Coffee,$2.75,true");
-		 */
 
 	}
 
@@ -107,11 +95,11 @@ public class BaristaMatic {
 		resetMenu.get(3).add("$3.35");
 		resetMenu.get(3).add(true);
 
-		resetMenu.get(4).add("Caffe Americano");
+		resetMenu.get(4).add("Cappuccino");
 		resetMenu.get(4).add("$3.30");
 		resetMenu.get(4).add(true);
 
-		resetMenu.get(5).add("Cappuccino");
+		resetMenu.get(5).add("Coffee");
 		resetMenu.get(5).add("$2.90");
 		resetMenu.get(5).add(true);
 
@@ -119,23 +107,17 @@ public class BaristaMatic {
 		resetMenu.get(6).add("$2.75");
 		resetMenu.get(6).add(true);
 
-		/*
-		 * menuList.add("1,Caffe Americano,$3.30,true");
-		 * menuList.add("2,Caffe Latte,$2.55,true");
-		 * menuList.add("3,Caffe Mocha,$3.35,true");
-		 * menuList.add("4,Cappuccino,$2.90,true"); menuList.add("5,Coffee,$2.75,true");
-		 * menuList.add("6,Decaf Coffee,$2.75,true");
-		 */
-
 	}
+
+	/*
+	 * Author: @AmitTiwari - modifyOrder() method handles all the orders by user and
+	 * its also update the inventory according to that.It is also check whether
+	 * current inventory is enough to make the order
+	 */
 
 	public static void modifyOrder(int value) {
 
-		//DefaultMenuInventory.defaultInventoryMenuDisplay();
-
 		System.out.println();
-
-		double cost = 0;
 
 		if (value == 1) {
 
@@ -170,8 +152,6 @@ public class BaristaMatic {
 
 			}
 
-//			cost = (2 * ingrediants.get("Espresso")) + (1 * ingrediants.get("Steamed Milk"));
-
 		}
 
 		else if (value == 3) {
@@ -194,12 +174,6 @@ public class BaristaMatic {
 
 			}
 
-			/*
-			 * cost = (1 * ingrediants.get("Espresso")) + (1 * ingrediants.get("Cocoa")) +
-			 * (1 * ingrediants.get("Steamed Milk")) + (1 *
-			 * ingrediants.get("Whipped Cream"));
-			 */
-
 		}
 
 		else if (value == 4) {
@@ -221,11 +195,6 @@ public class BaristaMatic {
 
 			}
 
-			/*
-			 * cost = 2 * (ingrediants.get("Espresso")) + (1 *
-			 * ingrediants.get("Steamed Milk")) + (1 * ingrediants.get("Foamed Milk"));
-			 */
-
 		} else if (value == 5) {
 
 			if (inventory.get("Coffee") >= 3 && inventory.get("Sugar") >= 1 && inventory.get("Cream") >= 1) {
@@ -242,9 +211,6 @@ public class BaristaMatic {
 				System.out.println();
 
 			}
-
-			// cost = (3 * ingrediants.get("Coffee")) + (1 * ingrediants.get("Sugar")) + (1
-			// * ingrediants.get("Cream"));
 
 		}
 
@@ -266,14 +232,8 @@ public class BaristaMatic {
 
 			}
 
-			/*
-			 * cost = (3 * ingrediants.get("Decaf Coffee")) + (1 * ingrediants.get("Sugar"))
-			 * + (1 * ingrediants.get("Cream"));
-			 */
-
 		}
 
-		// if
 		if (inventory.get("Espresso") < 3) {
 
 			menu.get(1).set(2, false);
@@ -305,35 +265,37 @@ public class BaristaMatic {
 		displayInventory();
 		displayMenu();
 
-		/*
-		 * System.out.println(cost);
-		 * 
-		 * for (Map.Entry<String, Integer> m : inventory.entrySet()) {
-		 * 
-		 * System.out.println(m.getKey() + " " + m.getValue());
-		 * 
-		 * }
-		 */
-
 	}
 
+	/*
+	 * Author: @AmitTiwari - restockInventory() This method is use to re-stock
+	 * Inventory and Menu.
+	 */
 	public static void restockInventory() {
 
 		inventory = new LinkedHashMap<>(restockInventory);
 		menu = new LinkedHashMap<>(resetMenu);
 		System.out.println("Inventory Restock Done!!!");
 
-		/*
-		 * for (Map.Entry<String, Integer> m : inventory.entrySet()) {
-		 * System.out.println(m.getKey() + " " + m.getValue()); }
-		 * 
-		 * System.out.println(); System.out.println("Menu: ");
-		 * 
-		 * for (Map.Entry<Integer, ArrayList> m : menu.entrySet()) {
-		 * System.out.println(m.getKey() + " " + m.getValue()); }
-		 */
+		System.out.println();
+		System.out.println("Inventory: ");
+		for (Map.Entry<String, Integer> m : inventory.entrySet()) {
+			System.out.println(m.getKey() + " " + m.getValue());
+
+		}
+		System.out.println();
+		System.out.println("Menu: ");
+
+		for (Map.Entry<Integer, ArrayList<Object>> m : menu.entrySet()) {
+			System.out.println(m.getKey() + " " + m.getValue());
+		}
 
 	}
+
+	/*
+	 * Author: @AmitTiwari - displayInventory() This method is use to display
+	 * Inventory
+	 */
 
 	public static void displayInventory() {
 		System.out.println("Inventory: ");
@@ -344,6 +306,10 @@ public class BaristaMatic {
 		System.out.println();
 
 	}
+
+	/*
+	 * Author: @AmitTiwari - displayMenu() This method is use to display Menu
+	 */
 
 	public static void displayMenu() {
 		System.out.println("Menu: ");
@@ -356,19 +322,26 @@ public class BaristaMatic {
 
 	}
 
+	/*
+	 * Author: @AmitTiwari - main() method int this method we are selecting are
+	 * choices of operation we need to perform with Inventory.
+	 */
+
 	public static void main(String[] args) {
 
-		//DefaultMenuInventory.defaultInventoryMenuDisplay();
-		
 		displayInventory();
 		displayMenu();
-		
 
 		Scanner scan = new Scanner(System.in);
 		String choice;
 
 		while (true) {
-			choice = scan.next();
+			choice = scan.nextLine();
+
+			if (choice.isEmpty()) {
+				continue;
+			}
+
 			if (choice.equals("R") || choice.equals("r")) {
 				restockInventory();
 
